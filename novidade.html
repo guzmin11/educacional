@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tudo Organizado - Kit Avançado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Estilos específicos para o funil */
+        .benefit-card-simple {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 1px solid #eee;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .context-item {
+            background: #F9FAFB;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .context-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .context-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .bullet-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .bullet-list li::before {
+            content: '✓';
+            color: var(--accent-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. HERO (DECISÃO IMEDIATA) -->
+    <header class="hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Tudo organizado para você não improvisar mais na alfabetização</h1>
+            <p class="subheadline" data-aos="fade-up" data-aos-delay="100">Planejamento, acompanhamento e adaptações
+                reunidos em um único kit para quem quer clareza, segurança e economia de tempo.</p>
+
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
+                <a href="#oferta" class="cta-button pulse">Sim, quero tudo organizado agora</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. BLOCO DE PROBLEMA REAL -->
+    <section class="social-proof-strip" style="background: #fff; padding: 50px 0;">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 15px;">
+                    Atividades prontas ajudam, mas sem organização o processo fica <strong>confuso, cansativo e difícil
+                        de acompanhar.</strong>
+                </p>
+                <div class="inclusive-box"
+                    style="border-color: var(--primary-blue); background: #F0F7FF; padding: 25px;">
+                    <p style="margin: 0; font-weight: 600; color: var(--primary-blue);">
+                        Este kit existe para transformar materiais soltos em um processo claro e funcional.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BLOCO DE BENEFÍCIOS EM RESULTADOS -->
+    <section class="benefits-grid-section" style="background: var(--bg-light); padding: 50px 0;">
+        <div class="container">
+            <div class="grid-5-cols"
+                style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); display: grid;">
+                <div class="benefit-card-simple" data-aos="zoom-in">
+                    Clareza para planejar cada etapa
+                </div>
+                <div class="benefit-card-simple" data-aos="zoom-in" data-aos-delay="100">
+                    Acompanhamento real da evolução
+                </div>
+                <div class="benefit-card-simple" data-aos="zoom-in" data-aos-delay="200">
+                    Menos improviso no dia a dia
+                </div>
+                <div class="benefit-card-simple" data-aos="zoom-in" data-aos-delay="300">
+                    Mais segurança ao ensinar
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. O QUE VOCÊ RECEBE (COM CONTEXTO) -->
+    <section class="what-you-get">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O que você recebe</h2>
+
+            <div class="mental-blocks">
+                <div class="context-item" data-aos="fade-right">
+                    <h3>Organização Pedagógica Avançada</h3>
+                    <p>Planeje meses e trimestres com clareza e acompanhe cada criança com registros simples e eficazes.
+                    </p>
+                </div>
+
+                <div class="context-item" data-aos="fade-left">
+                    <h3>Planejamento Anual Simplificado</h3>
+                    <p>Tenha visão do ano inteiro sem complicação, com foco por período.</p>
+                </div>
+
+                <div class="context-item" data-aos="fade-right">
+                    <h3>Atividades Editáveis (Canva)</h3>
+                    <p>Personalize, reaproveite e adapte conforme sua realidade.</p>
+                </div>
+
+                <div class="context-item" data-aos="fade-left">
+                    <h3>Guia de Alfabetização Inclusiva</h3>
+                    <p>Estratégias práticas para respeitar diferentes ritmos, sem pressão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. BLOCO EMOCIONAL CURTO -->
+    <section class="transformation" style="background: white; text-align: center;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O que muda na sua rotina</h2>
+            <div style="display: inline-block; text-align: left; background: #F9FAFB; padding: 30px; border-radius: 20px;"
+                data-aos="zoom-in">
+                <ul class="bullet-list">
+                    <li>Menos dúvidas</li>
+                    <li>Mais controle</li>
+                    <li>Planejamento claro</li>
+                    <li>Tranquilidade ao acompanhar a criança</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. VALOR + PREÇO -->
+    <section id="oferta" class="pricing-table">
+        <div class="container">
+            <div class="plan-card premium" style="margin: 0 auto; max-width: 500px;" data-aos="flip-up">
+                <div class="plan-header">
+                    <h3 style="color: var(--primary-blue);">Kit Avançado Completo</h3>
+                    <p style="margin: 20px 0; font-size: 0.95rem; color: var(--text-muted);">
+                        Este kit poderia ser vendido separadamente por um valor muito maior.
+                        <br>Mas hoje, como complemento do seu pedido:
+                    </p>
+
+                    <div style="margin-bottom: 10px; text-decoration: line-through; color: #aaa; font-size: 1.2rem;">De
+                        R$ 97,00</div>
+                    <div class="plan-price" style="color: #27AE60;">por R$ 42,90</div>
+
+                    <div
+                        style="background-color: #FFF3CD; color: #856404; padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 0.9rem; border: 1px solid #FFEeba;">
+                        <strong>Atenção: esta oferta aparece apenas uma vez.</strong><br>
+                        Se você sair desta página, não terá outra chance de adicionar este kit com este valor.
+                    </div>
+                </div>
+
+                <a href="#" class="plan-button premium-btn pulse">Adicionar agora ao meu pedido</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. GATILHO DE OPORTUNIDADE ÚNICA -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-card" style="border-color: #F8D05D; background: #FFF9EB; padding: 30px;"
+                data-aos="fade-up">
+                <p style="color: #A67C00; font-weight: 700; margin-bottom: 10px;">⚠️ Esta oferta está disponível apenas
+                    neste momento.</p>
+                <p style="color: #7F6000; font-size: 0.9rem; margin-bottom: 25px;">Ao sair desta página, esta condição
+                    não será oferecida novamente.</p>
+
+                <a href="ultimo.html"
+                    style="color: var(--text-muted); text-decoration: underline; font-size: 0.9rem; cursor: pointer;">
+                    Não, prefiro continuar sem organização agora.
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Kit de Alfabetização Divertida. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 80 });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

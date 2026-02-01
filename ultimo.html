@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organização Essencial - Última Chance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+        }
+
+        .feature-list li::before {
+            content: '✔️';
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. HERO -->
+    <header class="hero" style="background: linear-gradient(135deg, #FFF5F5 0%, #FFFFFF 100%);">
+        <div class="container">
+            <h1 data-aos="fade-up" style="color: #C0392B;">Última oportunidade para não sair sem organização</h1>
+            <p class="subheadline" data-aos="fade-up" data-aos-delay="100">
+                Se você não quiser o kit completo, leve uma <strong>versão essencial</strong> para organizar o básico do
+                dia a dia.
+            </p>
+        </div>
+    </header>
+
+    <!-- 2. O QUE ESTA VERSÃO RESOLVE -->
+    <section style="background: white; padding: 40px 0;">
+        <div class="container">
+            <div data-aos="fade-up" style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">
+                    Esta versão essencial ajuda você a organizar o mês, acompanhar a criança e evitar improvisos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. O QUE ESTÁ INCLUSO + PREÇO -->
+    <section class="pricing-table" style="background: var(--bg-light); padding-top: 20px;">
+        <div class="container">
+            <div class="plan-card" style="margin: 0 auto; max-width: 400px; border-color: #F8D05D;" data-aos="zoom-in">
+
+                <h3 style="margin-bottom: 20px;">Versão Essencial</h3>
+
+                <ul class="feature-list" style="list-style: none; text-align: left; margin-bottom: 25px;">
+                    <li>Planejamento mensal focado</li>
+                    <li>Registro individual simples</li>
+                    <li>Controle básico de acompanhamento</li>
+                    <li>Modelos prontos para imprimir</li>
+                </ul>
+
+                <p
+                    style="font-size: 0.85rem; color: #E74C3C; background: #FFF5F5; padding: 10px; border-radius: 8px; margin-bottom: 25px;">
+                    🚫 Não inclui planejamento anual, atividades editáveis ou adaptações inclusivas.
+                </p>
+
+                <div class="plan-price" style="font-size: 2.5rem; margin-bottom: 20px;">Apenas R$ 15,00</div>
+
+                <a href="#" class="plan-button pulse"
+                    style="background-color: var(--primary-yellow); color: #4A3A00; border: none; font-size: 1.1rem;">Adicionar
+                    versão essencial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. AVISO FINAL -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-card" style="border: 1px solid #ddd; background: #f9f9f9; padding: 25px;"
+                data-aos="fade-up">
+                <p style="font-size: 0.9rem; margin: 0; color: var(--text-muted);">
+                    <strong>⚠️ Esta é a última oportunidade</strong> de adicionar organização ao seu material com
+                    desconto.
+                    Ao sair desta página, esta oferta não estará mais disponível.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Kit de Alfabetização Divertida. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+    </script>
+</body>
+
+</html>
