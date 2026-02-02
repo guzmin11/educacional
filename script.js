@@ -84,9 +84,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Initialize AOS Animation Library
+// Popup Upgrade Logic
+function openUpgradePopup(event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById('upgradeModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+}
+
+function closeUpgradePopup(event) {
+    // If event is provided (click on overlay), only close if target is overlay
+    if (event && event.target !== event.currentTarget && !event.target.classList.contains('close-modal')) {
+        return;
+    }
+
+    const modal = document.getElementById('upgradeModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+// Inicialização AOS
 AOS.init({
-    duration: 800, // global duration
-    once: true, // whether animation should happen only once - while scrolling down
-    offset: 100, // offset (in px) from the original trigger point
+    duration: 1000,
+    once: true,
+    offset: 100
 });
