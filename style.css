@@ -799,10 +799,6 @@ details p {
     padding-left: 20px; /* offset inicial */
 }
 
-.carousel-track:hover {
-    animation-play-state: paused;
-}
-
 .carousel-img {
     height: 400px;
     width: auto;
@@ -822,3 +818,4 @@ details p {
         height: 300px;
     }
 }
+
