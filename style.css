@@ -757,4 +757,68 @@ details p {
 
 .modal-btn.basic-link:hover {
     color: var(--text-dark);
+
+}
+/* WhatsApp Carousel Styles */
+.carousel-container {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    padding: 10px 0;
+}
+
+/* Máscara de degrade nas bordas do carrossel usando display flex */
+.carousel-container::before,
+.carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-light) 0%, rgba(255,255,255,0) 100%);
+}
+
+.carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-light) 0%, rgba(255,255,255,0) 100%);
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollCarousel 20s linear infinite;
+    padding-left: 20px; /* offset inicial */
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-img {
+    height: 400px;
+    width: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+@keyframes scrollCarousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); } /* -50% da track width já que duplicamos as imgs */
+}
+
+@media (max-width: 768px) {
+    .carousel-img {
+        height: 300px;
+    }
 }
