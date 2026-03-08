@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Concluido | Crescendo Com Deus</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1423261069542248');
+        fbq('track', 'PageView');
+        fbq('track', 'Purchase', { value: 19.90, currency: 'BRL' });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1423261069542248&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 100px auto;
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: #10B981;
+            margin-bottom: 20px;
+            animation: scale-up 0.5s ease;
+        }
+
+        .success-headline {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .success-text {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .access-info {
+            background: var(--bg-soft-blue);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .access-info h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="success-container">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h1 class="success-headline">Parabéns! Seu pedido foi concluído.</h1>
+            <p class="success-text">Você acaba de dar um passo importante na educação cristã do seu filho.</p>
+
+            <div class="access-info">
+                <h4><i class="fas fa-envelope"></i> Como acessar seu material?</h4>
+                <p>Está tudo disponível em nossa plataforma. Já enviamos agora mesmo um e-mail com o link de acesso
+                    exclusivo para você baixar o material.</p>
+                <p style="font-size: 0.9rem; margin-top: 10px; color: #6B7280; margin-bottom: 20px;">(Verifique também
+                    sua pasta de Spam ou
+                    Promoções)</p>
+
+                <a href="https://crescendocomdeus.site/login" class="cta-button pulse"
+                    style="max-width: 100%; display: block; text-align: center;">
+                    <i class="fas fa-rocket"></i> ACESSAR MEUS MATERIAIS AGORA
+                </a>
+            </div>
+
+            <p style="font-weight: 700;">Precisa de ajuda?</p>
+            <p style="margin-bottom: 20px;">Se precisar de qualquer coisa, sinta-se à vontade para nos enviar uma
+                mensagem.</p>
+
+            <p style="font-weight: 700;">Dúvidas? Entre em contato conosco:</p>
+            <p style="margin-top: 5px; color: var(--primary-color);">suporte@crescendocomdeus.site</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
