@@ -215,14 +215,31 @@ section + section { border-top: 1px solid var(--line); }
 .tunit { font-size: .6rem; color: rgba(255,255,255,.55); font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
 .tsep { font-family: 'Fraunces', serif; font-size: 1.9rem; font-weight: 900; color: rgba(255,255,255,.4); }
 
+/* ── POPUP UPSELL ── */
+.upsell-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.75); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: all .3s ease; }
+.upsell-overlay.active { opacity: 1; visibility: visible; }
+.upsell-modal { background: var(--white); border-radius: var(--rx); padding: 34px 26px; max-width: 460px; width: 100%; text-align: center; position: relative; transform: translateY(30px); transition: transform .3s ease; box-shadow: 0 24px 64px rgba(0,0,0,.3); }
+.upsell-overlay.active .upsell-modal { transform: translateY(0); }
+.um-close { position: absolute; top: 14px; right: 20px; font-size: 28px; color: var(--ink-soft); cursor: pointer; font-weight: 800; line-height: 1; }
+.um-title { font-family: 'Fraunces', serif; font-size: 1.45rem; font-weight: 900; color: var(--red); line-height: 1.15; margin-bottom: 14px; letter-spacing: -.5px; }
+.um-text { font-size: .98rem; color: var(--ink-mid); font-weight: 600; line-height: 1.65; margin-bottom: 24px; }
+.um-text strong { color: var(--ink); font-weight: 800; }
+.btn-um-up { display: block; width: 100%; background: var(--yellow); color: var(--ink); padding: 18px; border-radius: 50px; font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 900; cursor: pointer; text-decoration: none; border: none; box-shadow: 0 8px 32px rgba(245,194,17,.4); margin-bottom: 14px; transition: all .25s; }
+.btn-um-up:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(245,194,17,.5); }
+.btn-um-down { display: block; width: 100%; background: transparent; color: var(--ink-soft); padding: 12px; font-size: .88rem; font-weight: 700; text-decoration: underline; border: none; cursor: pointer; }
+
 /* ── OFFER ── */
 .offer-sec { background: var(--white); }
 .offer-anchor { background: var(--ink); border-radius: var(--r); padding: 14px 18px; margin: 12px 0 28px; font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.6; text-align: center; font-weight: 600; }
 .offer-anchor strong { color: var(--yellow); }
-.offer-box { background: var(--bg); border-radius: var(--rx); border: 2.5px solid var(--blue); overflow: hidden; box-shadow: 0 12px 48px rgba(26,95,180,.15); }
-.offer-tag { background: var(--blue); color: #fff; text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 10px; }
+.offer-grid { display: flex; flex-direction: column; gap: 28px; }
+.offer-box { background: var(--bg); border-radius: var(--rx); border: 1.5px solid var(--line); overflow: hidden; }
+.offer-box.premium { border: 2.5px solid var(--yellow); box-shadow: 0 16px 54px rgba(245,194,17,.18); }
+.offer-tag { background: var(--line); color: var(--ink-soft); text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 10px; }
+.offer-box.premium .offer-tag { background: var(--yellow); color: #7a5c00; }
 .offer-inner { padding: 26px 22px; }
-.offer-product-preview { background: var(--white); border-radius: var(--r); padding: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; border: 1.5px solid var(--blue-pale); }
+.offer-product-preview { background: var(--white); border-radius: var(--r); padding: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; border: 1px solid var(--line); }
+.offer-box.premium .offer-product-preview { border-color: var(--yellow); background: var(--yell-lt); }
 .opp-icon { width: 90px; height: auto; object-fit: contain; flex-shrink: 0; }
 .opp-text h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 900; color: var(--ink); margin-bottom: 3px; }
 .opp-text p { font-size: .79rem; color: var(--ink-soft); font-weight: 600; line-height: 1.5; }
@@ -231,18 +248,20 @@ section + section { border-top: 1px solid var(--line); }
 .offer-list li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .9rem; color: var(--ink-mid); font-weight: 600; line-height: 1.45; }
 .offer-list li:last-child { border-bottom: none; }
 .oi-y { color: var(--green); font-weight: 800; font-size: 13px; min-width: 14px; margin-top: 1px; flex-shrink: 0; }
-.offer-extra { background: var(--white); border-radius: var(--r); padding: 14px 16px; margin-bottom: 20px; border: 1px solid var(--line); }
-.offer-extra h4 { font-size: .82rem; font-weight: 800; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
-.offer-extra ul { list-style: none; display: grid; gap: 6px; }
-.offer-extra ul li { font-size: .88rem; font-weight: 600; color: var(--ink-mid); display: flex; align-items: center; gap: 8px; }
-.offer-price-block { text-align: center; padding: 20px; background: var(--white); border-radius: var(--r); margin-bottom: 18px; border: 1.5px solid var(--blue-pale); }
+.oi-n { color: var(--ink-soft); font-weight: 800; font-size: 13px; min-width: 14px; margin-top: 1px; flex-shrink: 0; opacity: 0.4; }
+.offer-price-block { text-align: center; padding: 20px; background: var(--white); border-radius: var(--r); margin-bottom: 18px; border: 1.5px solid var(--line); }
+.offer-box.premium .offer-price-block { border-color: var(--yellow); }
 .opb-old { font-size: .9rem; color: var(--ink-soft); font-weight: 600; text-decoration: line-through; margin-bottom: 4px; }
-.opb-price { font-family: 'Fraunces', serif; font-size: 3.4rem; font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+.opb-price { font-family: 'Fraunces', serif; font-size: 3.4rem; font-weight: 900; color: var(--ink); line-height: 1; margin-bottom: 4px; }
+.offer-box.premium .opb-price { color: var(--blue); }
 .opb-price sup { font-size: 1.2rem; vertical-align: super; }
 .opb-price span { font-size: 1.1rem; }
 .opb-note { font-size: .78rem; color: var(--ink-soft); font-weight: 600; }
-.btn-buy { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 18px; border-radius: 50px; border: none; background: var(--blue); color: #fff; font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; text-decoration: none; transition: all .25s; box-shadow: 0 8px 28px rgba(26,95,180,.4); margin-bottom: 14px; }
-.btn-buy:hover { background: var(--blue-lt); transform: translateY(-2px); }
+.btn-buy { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 18px; border-radius: 50px; border: none; font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; text-decoration: none; transition: all .25s; margin-bottom: 14px; }
+.btn-buy.premium { background: var(--blue); color: #fff; box-shadow: 0 8px 28px rgba(26,95,180,.4); }
+.btn-buy.premium:hover { background: var(--blue-lt); transform: translateY(-2px); }
+.btn-buy.basic { background: var(--white); color: var(--ink-mid); border: 2px solid var(--line); box-shadow: none; }
+.btn-buy.basic:hover { background: var(--bg); border-color: #d1d1e0; }
 .pay-icons { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
 .pay-icon { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 5px 11px; font-size: .72rem; font-weight: 800; color: var(--ink-soft); }
 .offer-badges { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
@@ -343,9 +362,9 @@ src="https://www.facebook.com/tr?id=924382820251135&ev=PageView&noscript=1"
     <img src="mockup.png" class="hero-img" alt="Mockup completo do Kit Grafismo Fonético">
 
     <div class="hero-price-box">
-      <div class="hero-price-old">De R$37,90</div>
-      <div class="hero-price"><sup>R$</sup>15<span>,00</span></div>
-      <div class="hero-price-note">Acesso imediato após o pagamento</div>
+      <div class="hero-price-old">De R$147,00</div>
+      <div class="hero-price"><sup>R$</sup>29<span>,90</span></div>
+      <div class="hero-price-note">Kit Premium VIP com Bônus Inclusos</div>
     </div>
 
     <a href="#oferta" class="btn-main">EU QUERO →</a>
@@ -614,53 +633,73 @@ src="https://www.facebook.com/tr?id=924382820251135&ev=PageView&noscript=1"
     <span class="sec-label">Garanta o seu acesso</span>
     <h2 class="sec-title">Tudo isso por menos<br>do que <em>uma aula de reforço.</em></h2>
     <div class="offer-anchor">
-      Cursos similares cobram <strong>R$97, R$197 até R$397.</strong> Você paga hoje <strong>R$15,00</strong> — e imprime quantas vezes quiser, para sempre.
+      Cursos similares cobram <strong>R$97 até R$397.</strong> Escolha o melhor plano para o seu filho abaixo e imprima quantas vezes quiser, para sempre.
     </div>
-    <div class="offer-box">
-      <div class="offer-tag">🏆 OFERTA ESPECIAL — APENAS HOJE</div>
-      <div class="offer-inner">
-        <div class="offer-product-preview">
-          <img src="mockup.png" class="opp-icon" alt="Kit Grafismo Fonético Mockup">
-          <div class="opp-text"><h3>Kit Grafismo Fonético</h3><p>Kit completo com +100 atividades para imprimir e passo a passo ilustrado — aplique hoje mesmo</p></div>
-        </div>
-        <div class="offer-what">
-          <h4>Você vai receber</h4>
-          <ul class="offer-list">
-            <li><span class="oi-y">✓</span><span>Caderno do Alfabeto Fonético — letra + som + imagem</span></li>
-            <li><span class="oi-y">✓</span><span>Caderno Prático de Caligrafia Cursiva</span></li>
-            <li><span class="oi-y">✓</span><span>Silabário Cursivo — fim do travamento</span></li>
-            <li><span class="oi-y">✓</span><span>Caderno de Produção de Texto e Frases</span></li>
-            <li><span class="oi-y">✓</span><span>Coordenação Motora — escrita firme e bonita</span></li>
-            <li><span class="oi-y">✓</span><span>Passo a passo ilustrado para aplicar hoje</span></li>
-            <li><span class="oi-y">✓</span><span>Funciona com TDAH e dislexia</span></li>
-            <li><span class="oi-y" style="font-size:16px;">🎁</span><span style="font-weight:700;color:var(--ink);">+ 4 Bônus Exclusivos Grátis</span></li>
-          </ul>
-        </div>
-        <div class="offer-extra">
-          <h4>+ Extra exclusivo</h4>
-          <ul>
-            <li>🖨️ Imprima quantas vezes quiser — sem limite</li>
-            <li>♾️ Acesso vitalício ao material</li>
-            <li>🔄 Renovação de conteúdo gratuita</li>
-          </ul>
-        </div>
-        <div class="offer-price-block">
-          <div class="opb-old">De R$37,90</div>
-          <div class="opb-price"><sup>R$</sup>15<span>,00</span></div>
-          <div class="opb-note">Acesso imediato após o pagamento</div>
-        </div>
-        <a href="#checkout" class="btn-buy">COMPRAR AGORA →</a>
-        <div class="pay-icons">
-          <div class="pay-icon">💳 Cartão</div>
-          <div class="pay-icon">📱 Pix</div>
-          <div class="pay-icon">🏦 Boleto</div>
-        </div>
-        <div class="offer-badges">
-          <span>🔒 Pagamento seguro</span>
-          <span>⚡ Acesso imediato</span>
-          <span>🛡️ 7 dias de garantia</span>
+
+    <div class="offer-grid">
+
+      <!-- OFERTA BÁSICA -->
+      <div class="offer-box basic">
+        <div class="offer-tag">KIT BÁSICO SIMPLES</div>
+        <div class="offer-inner">
+          <div class="offer-product-preview" style="padding:12px; margin-bottom:14px;">
+            <div class="opp-text"><h3>Kit Básico</h3><p style="font-size:.74rem;">Apenas pacote de entrada para grafismo fonético.</p></div>
+          </div>
+          <div class="offer-what">
+            <ul class="offer-list" style="margin-bottom:12px;">
+              <li><span class="oi-y">✓</span><span>Apenas 100 atividades de alfabetização base</span></li>
+              <li style="color:var(--ink-soft);"><span class="oi-n">✕</span><span style="text-decoration:line-through;">SEM o Mega Pacote de alfabetização (+700)</span></li>
+              <li style="color:var(--ink-soft);"><span class="oi-n">✕</span><span style="text-decoration:line-through;">SEM pacote de matemática e dinâmicas</span></li>
+              <li style="color:var(--ink-soft);"><span class="oi-n">✕</span><span style="text-decoration:line-through;">SEM os 4 Bônus Exclusivos Especiais da página</span></li>
+            </ul>
+          </div>
+          <div class="offer-price-block" style="padding:14px; margin-bottom:14px;">
+            <div class="opb-price" style="font-size:2.8rem;"><sup>R$</sup>14<span>,90</span></div>
+          </div>
+          <!-- Chama o modal (JS) em vez de ir para o checkout direto -->
+          <button type="button" class="btn-buy basic" onclick="openUpsellModal()">QUERO APENAS O BÁSICO</button>
         </div>
       </div>
+
+      <!-- MÁXIMA OFERTA: PREMIUM -->
+      <div class="offer-box premium">
+        <div class="offer-tag">🏆 KIT PREMIUM VIP — MAIS RECOMENDADO</div>
+        <div class="offer-inner">
+          <div class="offer-product-preview">
+            <img src="mockup.png" class="opp-icon" alt="Kit Grafismo Fonético Mockup" style="width: 100px;">
+            <div class="opp-text"><h3>Kit Grafismo Fonético Premium</h3><p>O pacote definitivo com mais de 1.000 atividades, dinâmicas e bônus incríveis.</p></div>
+          </div>
+          <div class="offer-what">
+            <h4>O QUE VOCÊ LEVA HOJE:</h4>
+            <ul class="offer-list">
+              <li><span class="oi-y">✓</span><span><strong>TUDO do Kit Básico</strong> (100 atividades fonéticas base)</span></li>
+              <li><span class="oi-y">✓</span><span><strong>+ 700</strong> novas atividades de alfabetização</span></li>
+              <li><span class="oi-y">✓</span><span><strong>+ 100</strong> dinâmicas prontas para aplicar</span></li>
+              <li><span class="oi-y">✓</span><span><strong>+ 100</strong> atividades de matemática (1º ano)</span></li>
+              <li><span class="oi-y">✓</span><span><strong>Novidade:</strong> Quebra-cabeça interativo</span></li>
+              <li><span class="oi-y">✓</span><span><strong>Novidade:</strong> Caça-palavras e Cruzadinhas</span></li>
+              <li><span class="oi-y" style="font-size:16px;">🎁</span><span style="font-weight:700;color:var(--ink);">+ 4 Bônus Exclusivos detalhados acima</span></li>
+            </ul>
+          </div>
+          <div class="offer-price-block">
+            <div class="opb-old">De R$ 147,00</div>
+            <div class="opb-price"><sup>R$</sup>29<span>,90</span></div>
+            <div class="opb-note">Acesso vitalício a todo o material</div>
+          </div>
+          <a href="#checkout-premium" class="btn-buy premium">QUERO O KIT PREMIUM E OS BÔNUS →</a>
+          <div class="pay-icons">
+            <div class="pay-icon">💳 Cartão</div>
+            <div class="pay-icon">📱 Pix</div>
+            <div class="pay-icon">🏦 Boleto</div>
+          </div>
+          <div class="offer-badges">
+            <span>🔒 Pagamento seguro</span>
+            <span>⚡ Acesso imediato</span>
+            <span>🛡️ 7 dias de garantia</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -733,11 +772,11 @@ src="https://www.facebook.com/tr?id=924382820251135&ev=PageView&noscript=1"
 <section class="final-sec">
   <div class="wrap reveal">
     <div class="final-title">Daqui 30 dias seu filho<br>pode estar <em>lendo sozinho.</em></div>
-    <p class="final-sub">Ou pode continuar igual. A escolha é sua — e ela custa R$15,00.</p>
+    <p class="final-sub">Ou pode continuar igual. A escolha é sua, e a melhor delas está apenas a um clique.</p>
     <div class="final-price-box">
-      <div class="fp-old">De R$37,90</div>
-      <div class="fp-price"><sup>R$</sup>15<sup>,00</sup></div>
-      <a href="#checkout" class="btn-final">QUERO MEU FILHO LENDO AGORA →</a>
+      <div class="fp-old">De R$147,00</div>
+      <div class="fp-price"><sup>R$</sup>29<sup>,90</sup></div>
+      <a href="#checkout-premium" class="btn-final">QUERO O KIT PREMIUM VIP AGORA →</a>
       <div class="secure-row">
         <span>🔒 Seguro</span>
         <span>⚡ Imediato</span>
@@ -752,11 +791,36 @@ src="https://www.facebook.com/tr?id=924382820251135&ev=PageView&noscript=1"
   <p>Produto digital entregue imediatamente após confirmação do pagamento. Resultados podem variar.</p>
 </footer>
 
+<!-- UPSELL MODAL OVERLAY -->
+<div class="upsell-overlay" id="upsellModal">
+  <div class="upsell-modal">
+    <span class="um-close" onclick="closeUpsellModal()">×</span>
+    <h3 class="um-title">Espere! Tem certeza que vai deixar tudo isso para trás?</h3>
+    <p class="um-text">Por <strong>apenas mais R$ 15,00 adicionais</strong> você leva o <strong>Kit Premium Absoluto.</strong><br><br>São +700 atividades extras de alfabetização, pacote de matemática para o 1º ano, 100 dinâmicas e <strong>TODOS os 4 Bônus Exclusivos ("Presentes")</strong> listados na página.<br><br>Você realmente vai negar tudo isso ao seu filho por esse valor irrisório?</p>
+    <button class="btn-um-up" onclick="forceBuyPremium()">SIM, EU QUERO O KIT PREMIUM E OS BÔNUS →</button>
+    <button class="btn-um-down" onclick="forceBuyBasic()">Não, obrigado. Quero apenas as 100 atividades do pacote básico, sem bônus.</button>
+  </div>
+</div>
+
 <div class="sticky">
-  <a href="#checkout">QUERO MEU FILHO LENDO — R$15,00 →</a>
+  <a href="#checkout-premium">QUERO MEU FILHO LENDO — KIT PREMIUM VIP →</a>
 </div>
 
 <script>
+  // Upsell Modal Logic
+  function openUpsellModal() {
+    document.getElementById('upsellModal').classList.add('active');
+  }
+  function closeUpsellModal() {
+    document.getElementById('upsellModal').classList.remove('active');
+  }
+  function forceBuyBasic() {
+    window.location.href = '#checkout-basic';
+  }
+  function forceBuyPremium() {
+    window.location.href = '#checkout-premium';
+  }
+
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const a = q.nextElementSibling;
