@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit Grafismo Fonético — Como Ensinei Minha Filha a Ler em 2 Semanas</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --blue:     #1a5fb4;
+  --blue-lt:  #3584e4;
+  --blue-pale:#ddeeff;
+  --yellow:   #f5c211;
+  --yell-lt:  #fffbea;
+  --green:    #26a269;
+  --green-lt: #d4f0e4;
+  --red:      #c01c28;
+  --ink:      #1c1c2e;
+  --ink-mid:  #3d3d5c;
+  --ink-soft: #6b6b8a;
+  --bg:       #f4f8ff;
+  --white:    #ffffff;
+  --line:     rgba(28,28,46,.09);
+  --r: 14px; --rx: 22px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+
+/* ── ANNOUNCE ── */
+.announce { background: var(--red); color: #fff; text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 800; line-height: 1.5; }
+
+/* ── HERO ── */
+.hero { background: var(--white); padding: 40px 20px 48px; text-align: center; border-bottom: 3px solid var(--blue-pale); }
+
+.hero-tag { display: inline-block; background: var(--yell-lt); border: 2px solid var(--yellow); color: #7a5c00; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 16px; border-radius: 50px; margin-bottom: 18px; }
+
+/* Social proof ABOVE the H1 */
+.hero-social-proof {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin-bottom: 16px; flex-wrap: wrap;
+}
+.hsp-stars { color: var(--yellow); font-size: 15px; letter-spacing: 1px; }
+.hsp-text { font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+.hsp-pill {
+  background: var(--green-lt); color: var(--green);
+  font-size: 11px; font-weight: 800;
+  padding: 3px 10px; border-radius: 50px;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.75rem, 7.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.08;
+  color: var(--ink); margin-bottom: 14px; letter-spacing: -.5px;
+}
+.hero h1 em { font-style: italic; color: var(--blue); }
+.hero h1 .red { color: var(--red); font-style: normal; }
+
+.hero-sub { font-size: clamp(.9rem, 3vw, 1.05rem); color: var(--ink-soft); font-weight: 600; line-height: 1.75; max-width: 480px; margin: 0 auto 22px; }
+
+/* ── SYLLABLE MOCKUP / HERO IMG ── */
+.hero-img { width: 100%; max-width: 480px; height: auto; margin: 0 auto 32px; display: block; border-radius: 12px; }
+
+.hero-price-box { margin: 0 auto 20px; max-width: 300px; }
+.hero-price-old { font-size: .9rem; color: var(--ink-soft); font-weight: 600; text-decoration: line-through; margin-bottom: 2px; }
+.hero-price { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+.hero-price sup { font-size: 1.2rem; vertical-align: super; }
+.hero-price span { font-size: 1.1rem; }
+.hero-price-note { font-size: .78rem; color: var(--ink-soft); font-weight: 600; }
+
+.btn-main { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: #fff; font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; padding: 17px 44px; border-radius: 50px; box-shadow: 0 8px 28px rgba(26,95,180,.4); transition: all .22s; letter-spacing: .2px; width: 100%; max-width: 380px; }
+.btn-main:hover { background: var(--blue-lt); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(26,95,180,.5); }
+
+.hero-badges { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+.hero-badges span { font-size: 11.5px; font-weight: 700; color: var(--ink-soft); display: flex; align-items: center; gap: 5px; }
+
+/* ── SOCIAL STRIP ── */
+.social-strip { background: var(--blue); padding: 14px 20px; }
+.social-inner { max-width: 640px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; }
+.si { font-size: .8rem; color: rgba(255,255,255,.7); font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.si strong { color: #fff; }
+.si-sep { width: 1px; height: 20px; background: rgba(255,255,255,.15); }
+@media(max-width:440px){ .si-sep{display:none;} }
+
+/* ── SECTION BASE ── */
+section { padding: 52px 20px; }
+section + section { border-top: 1px solid var(--line); }
+.sec-label { font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 10px; }
+.sec-title { font-family: 'Fraunces', serif; font-size: clamp(1.75rem, 5.5vw, 2.5rem); font-weight: 900; line-height: 1.12; color: var(--ink); letter-spacing: -.4px; margin-bottom: 20px; }
+.sec-title em { font-style: italic; color: var(--blue); }
+
+/* ── PAIN — now FIRST after social strip ── */
+.pain-sec { background: var(--white); }
+.pain-intro { font-size: .95rem; color: var(--ink-soft); font-weight: 600; line-height: 1.75; margin-bottom: 22px; }
+.pain-intro strong { color: var(--ink-mid); }
+.pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media(max-width:420px){ .pain-grid { grid-template-columns: 1fr; } }
+.pain-card { background: var(--bg); border-radius: var(--r); padding: 16px 14px; border: 1.5px solid var(--line); font-size: .87rem; font-weight: 600; color: var(--ink-mid); line-height: 1.5; }
+.pain-card .pi { font-size: 20px; margin-bottom: 7px; display: block; }
+
+/* ── STORY ── */
+.story-sec { background: var(--bg); }
+.story-quote { font-family: 'Fraunces', serif; font-size: clamp(1.1rem, 4vw, 1.5rem); font-weight: 800; font-style: italic; line-height: 1.6; color: var(--ink-mid); padding-left: 18px; border-left: 4px solid var(--yellow); margin-bottom: 18px; }
+.story-body { font-size: .95rem; line-height: 1.88; color: var(--ink-soft); font-weight: 600; }
+.story-body p + p { margin-top: 12px; }
+.story-body strong { color: var(--ink-mid); font-weight: 700; }
+.story-highlight { background: var(--yell-lt); border: 1.5px solid var(--yellow); border-radius: var(--r); padding: 16px 18px; margin-top: 20px; font-size: .9rem; font-weight: 700; color: #7a5c00; line-height: 1.6; }
+.story-highlight strong { color: var(--ink); }
+.stat-row { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+.stat-box { flex: 1; min-width: 100px; background: var(--white); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 12px; text-align: center; }
+.stat-num { font-family: 'Fraunces', serif; font-size: 1.75rem; font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 3px; }
+.stat-label { font-size: .72rem; color: var(--ink-soft); line-height: 1.4; font-weight: 600; }
+
+/* ── SCIENCE / WHY IT WORKS ── */
+.science-sec { background: var(--white); }
+.science-intro { font-size: .95rem; color: var(--ink-soft); font-weight: 600; line-height: 1.8; margin-bottom: 24px; }
+.science-intro strong { color: var(--ink-mid); }
+
+/* Visual brain simulation */
+.brain-demo {
+  background: var(--bg); border-radius: var(--r);
+  padding: 18px; margin-bottom: 18px; border: 1.5px solid var(--blue-pale);
+}
+.bd-label { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 12px; text-align: center; }
+.bd-old { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.bd-old-label { font-size: .78rem; font-weight: 700; color: var(--red); background: #fde8e8; padding: 4px 10px; border-radius: 50px; white-space: nowrap; }
+.bd-old-steps { display: flex; gap: 6px; flex: 1; }
+.bd-step { background: #fde8e8; border-radius: 8px; padding: 5px 8px; font-size: .72rem; font-weight: 700; color: var(--red); text-align: center; flex: 1; }
+.bd-new { display: flex; align-items: center; gap: 8px; }
+.bd-new-label { font-size: .78rem; font-weight: 700; color: var(--green); background: var(--green-lt); padding: 4px 10px; border-radius: 50px; white-space: nowrap; }
+.bd-new-steps { display: flex; gap: 6px; flex: 1; }
+.bd-new-step { background: var(--green-lt); border-radius: 8px; padding: 5px 8px; font-size: .72rem; font-weight: 700; color: var(--green); text-align: center; flex: 1; }
+
+.brain-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+@media(max-width:400px){ .brain-grid { grid-template-columns: 1fr; } }
+.brain-card { background: var(--blue); border-radius: var(--r); padding: 18px 14px; text-align: center; }
+.brain-icon { font-size: 30px; margin-bottom: 8px; }
+.brain-title { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 900; color: #fff; margin-bottom: 4px; }
+.brain-desc { font-size: .76rem; color: rgba(255,255,255,.7); font-weight: 600; line-height: 1.45; }
+
+.science-result { background: var(--green-lt); border: 1.5px solid var(--green); border-radius: var(--r); padding: 14px 16px; display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: var(--green); font-weight: 700; line-height: 1.55; }
+.sr-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── HOW ── */
+.how-sec { background: var(--bg); }
+.steps { display: grid; gap: 0; margin-top: 8px; }
+.step { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.step:last-child { border-bottom: none; }
+.step-num { width: 36px; height: 36px; min-width: 36px; border-radius: 50%; background: var(--blue); color: #fff; font-family: 'Fraunces', serif; font-size: .95rem; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step h4 { font-size: .93rem; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.step p { font-size: .84rem; color: var(--ink-soft); line-height: 1.6; font-weight: 600; }
+
+/* ── CONTENT ── */
+.content-sec { background: var(--white); }
+.modules { display: grid; gap: 10px; margin-top: 8px; }
+.mod-card { background: var(--bg); border-radius: var(--r); border: 1.5px solid var(--line); overflow: hidden; display: flex; align-items: stretch; transition: box-shadow .2s, transform .2s; }
+.mod-card:hover { box-shadow: 0 6px 22px rgba(26,95,180,.1); transform: translateY(-2px); }
+.mod-icon-col { width: 62px; min-width: 62px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+.mc1 { background: linear-gradient(160deg,#ddeeff,#c0d8ff); }
+.mc2 { background: linear-gradient(160deg,#d4f0e4,#b2e0c8); }
+.mc3 { background: linear-gradient(160deg,#fff3cd,#ffe082); }
+.mc4 { background: linear-gradient(160deg,#fde8f0,#f8b8d0); }
+.mc5 { background: linear-gradient(160deg,#ede8ff,#d8c8ff); }
+.mc6 { background: linear-gradient(160deg,#d4f0e4,#a8e0c0); }
+.mod-body { padding: 13px 15px; flex: 1; }
+.mod-body h4 { font-size: .9rem; font-weight: 800; color: var(--ink); margin-bottom: 3px; }
+.mod-body p { font-size: .79rem; color: var(--ink-soft); line-height: 1.5; font-weight: 600; }
+.mod-pill { font-size: .68rem; font-weight: 800; color: var(--blue); background: var(--blue-pale); padding: 2px 8px; border-radius: 50px; display: inline-block; margin-top: 5px; }
+
+/* ── ANCHOR ── */
+.anchor-bar { background: var(--yellow); padding: 22px 20px; text-align: center; }
+.anchor-bar p { font-family: 'Fraunces', serif; font-size: clamp(1.1rem, 4vw, 1.55rem); font-weight: 900; color: var(--ink); line-height: 1.5; }
+.anchor-bar p em { font-style: italic; color: var(--blue); }
+
+/* ── PROOF ── */
+.proof-sec { background: var(--bg); }
+.proofs { display: grid; gap: 12px; margin-top: 8px; }
+.proof-card { background: var(--white); border-radius: var(--r); padding: 20px 18px; border: 1.5px solid var(--line); }
+.proof-top { display: flex; align-items: center; gap: 11px; margin-bottom: 10px; }
+.proof-av { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0; border: 2px solid var(--line); object-fit: cover; }
+.av1 { background: linear-gradient(135deg,#ffe082,#f5a623); }
+.av2 { background: linear-gradient(135deg,#a5d6a7,#26a269); }
+.av3 { background: linear-gradient(135deg,#90caf9,#1a5fb4); }
+.proof-name { font-size: .85rem; font-weight: 800; color: var(--ink); }
+.proof-stars { color: var(--yellow); font-size: 12px; letter-spacing: 1.5px; }
+.proof-text { font-family: 'Fraunces', serif; font-size: 1.02rem; font-style: italic; font-weight: 800; color: var(--ink-mid); line-height: 1.7; margin-bottom: 10px; }
+.proof-result { display: inline-flex; align-items: center; gap: 5px; background: var(--green-lt); border-radius: 50px; padding: 3px 11px; font-size: .74rem; font-weight: 800; color: var(--green); }
+
+/* ── BONUSES ── */
+.bonus-sec { background: var(--yell-lt); border-top: 1px solid var(--yellow); border-bottom: 1px solid var(--yellow); }
+.bonus-list { display: grid; gap: 14px; margin-top: 18px; }
+.bonus-card { background: var(--white); border-radius: var(--rx); padding: 22px 20px; border: 1.5px solid var(--yellow); position: relative; overflow: hidden; box-shadow: 0 8px 24px rgba(245,194,17,.1); }
+.bonus-card::after { content: "PRESENTE"; position: absolute; top: 12px; right: -28px; background: var(--yellow); color: #7a5c00; font-size: 9px; font-weight: 900; letter-spacing: 2px; padding: 4px 30px; transform: rotate(45deg); }
+.bc-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.bc-icon-img { width: 85px; height: auto; border-radius: 8px; flex-shrink: 0; border: 1px solid var(--line); box-shadow: 0 4px 12px rgba(0,0,0,.06); object-fit: cover; }
+.bc-text { display: flex; flex-direction: column; }
+.bc-text span { font-size: .7rem; color: #7a5c00; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+.bc-text h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 900; color: var(--ink); line-height: 1.2; }
+.bonus-card p { font-size: .88rem; color: var(--ink-soft); line-height: 1.5; font-weight: 600; }
+.bonus-total { text-align: center; margin-top: 28px; font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 800; color: var(--ink); line-height: 1.5; }
+.bonus-total s { font-size: 1rem; color: var(--ink-soft); font-weight: 600; }
+.bonus-total em { color: var(--blue); font-style: italic; font-weight: 900; }
+
+/* ── TIMER ── */
+.timer-bar { background: var(--red); padding: 20px; text-align: center; }
+.timer-label { color: rgba(255,255,255,.85); font-size: .8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.timer-row { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.tbox { background: rgba(0,0,0,.3); border-radius: 10px; padding: 10px 14px; min-width: 62px; text-align: center; }
+.tnum { font-family: 'Fraunces', serif; font-size: 1.9rem; font-weight: 900; color: #fff; line-height: 1; }
+.tunit { font-size: .6rem; color: rgba(255,255,255,.55); font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+.tsep { font-family: 'Fraunces', serif; font-size: 1.9rem; font-weight: 900; color: rgba(255,255,255,.4); }
+
+/* ── OFFER ── */
+.offer-sec { background: var(--white); }
+.offer-anchor { background: var(--ink); border-radius: var(--r); padding: 14px 18px; margin: 12px 0 28px; font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.6; text-align: center; font-weight: 600; }
+.offer-anchor strong { color: var(--yellow); }
+.offer-box { background: var(--bg); border-radius: var(--rx); border: 2.5px solid var(--blue); overflow: hidden; box-shadow: 0 12px 48px rgba(26,95,180,.15); }
+.offer-tag { background: var(--blue); color: #fff; text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 10px; }
+.offer-inner { padding: 26px 22px; }
+.offer-product-preview { background: var(--white); border-radius: var(--r); padding: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; border: 1.5px solid var(--blue-pale); }
+.opp-icon { width: 90px; height: auto; object-fit: contain; flex-shrink: 0; }
+.opp-text h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 900; color: var(--ink); margin-bottom: 3px; }
+.opp-text p { font-size: .79rem; color: var(--ink-soft); font-weight: 600; line-height: 1.5; }
+.offer-what h4 { font-size: .82rem; font-weight: 800; color: var(--ink-soft); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.offer-list { list-style: none; border-top: 1px solid var(--line); margin-bottom: 18px; }
+.offer-list li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .9rem; color: var(--ink-mid); font-weight: 600; line-height: 1.45; }
+.offer-list li:last-child { border-bottom: none; }
+.oi-y { color: var(--green); font-weight: 800; font-size: 13px; min-width: 14px; margin-top: 1px; flex-shrink: 0; }
+.offer-extra { background: var(--white); border-radius: var(--r); padding: 14px 16px; margin-bottom: 20px; border: 1px solid var(--line); }
+.offer-extra h4 { font-size: .82rem; font-weight: 800; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.offer-extra ul { list-style: none; display: grid; gap: 6px; }
+.offer-extra ul li { font-size: .88rem; font-weight: 600; color: var(--ink-mid); display: flex; align-items: center; gap: 8px; }
+.offer-price-block { text-align: center; padding: 20px; background: var(--white); border-radius: var(--r); margin-bottom: 18px; border: 1.5px solid var(--blue-pale); }
+.opb-old { font-size: .9rem; color: var(--ink-soft); font-weight: 600; text-decoration: line-through; margin-bottom: 4px; }
+.opb-price { font-family: 'Fraunces', serif; font-size: 3.4rem; font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+.opb-price sup { font-size: 1.2rem; vertical-align: super; }
+.opb-price span { font-size: 1.1rem; }
+.opb-note { font-size: .78rem; color: var(--ink-soft); font-weight: 600; }
+.btn-buy { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 18px; border-radius: 50px; border: none; background: var(--blue); color: #fff; font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; text-decoration: none; transition: all .25s; box-shadow: 0 8px 28px rgba(26,95,180,.4); margin-bottom: 14px; }
+.btn-buy:hover { background: var(--blue-lt); transform: translateY(-2px); }
+.pay-icons { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.pay-icon { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 5px 11px; font-size: .72rem; font-weight: 800; color: var(--ink-soft); }
+.offer-badges { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.offer-badges span { font-size: 11.5px; font-weight: 700; color: var(--ink-soft); display: flex; align-items: center; gap: 5px; }
+
+/* ── GUARANTEE ── */
+.guarantee-sec { background: var(--bg); }
+.guarantee-box { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--rx); padding: 26px 22px; display: flex; align-items: flex-start; gap: 18px; max-width: 540px; margin: 0 auto; }
+@media(max-width:440px){ .guarantee-box { flex-direction: column; align-items: center; text-align: center; } }
+.g-icon { font-size: 46px; line-height: 1; flex-shrink: 0; }
+.g-text h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
+.g-text p { font-size: .88rem; color: var(--ink-soft); line-height: 1.65; font-weight: 600; }
+
+/* ── BENEFITS — now AFTER offer ── */
+.benefits-sec { background: var(--white); }
+.ben-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media(max-width:420px){ .ben-grid { grid-template-columns: 1fr; } }
+.ben-card { background: var(--bg); border-radius: var(--r); padding: 16px 14px; border: 1.5px solid var(--blue-pale); display: flex; align-items: flex-start; gap: 12px; }
+.ben-icon { font-size: 24px; line-height: 1; flex-shrink: 0; }
+.ben-text h4 { font-size: .88rem; font-weight: 800; color: var(--ink); margin-bottom: 3px; }
+.ben-text p { font-size: .77rem; color: var(--ink-soft); font-weight: 600; line-height: 1.5; }
+
+/* ── FAQ ── */
+.faq-sec { background: var(--bg); }
+.faq-list { margin-top: 8px; display: grid; gap: 8px; }
+.faq-item { background: var(--white); border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 18px; font-size: .92rem; font-weight: 700; color: var(--ink); cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+.faq-ic { width: 26px; height: 26px; min-width: 26px; border-radius: 50%; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 16px; transition: transform .2s; flex-shrink: 0; font-weight: 800; }
+.faq-q.open .faq-ic { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 18px 15px; font-size: .87rem; color: var(--ink-soft); line-height: 1.8; font-weight: 600; }
+.faq-a.open { display: block; }
+
+/* ── FINAL CTA ── */
+.final-sec { background: var(--blue); padding: 52px 20px; text-align: center; }
+.final-title { font-family: 'Fraunces', serif; font-size: clamp(1.7rem, 5.5vw, 2.5rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 10px; letter-spacing: -.4px; }
+.final-title em { font-style: italic; color: var(--yellow); }
+.final-sub { font-size: .9rem; color: rgba(255,255,255,.5); font-weight: 600; margin: 0 auto 32px; line-height: 1.7; max-width: 340px; }
+.final-price-box { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: var(--rx); padding: 24px 20px; max-width: 340px; margin: 0 auto; }
+.fp-old { font-size: .85rem; color: rgba(255,255,255,.3); text-decoration: line-through; font-weight: 600; margin-bottom: 4px; }
+.fp-price { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 18px; }
+.fp-price sup { font-size: 1rem; vertical-align: super; }
+.btn-final { display: block; width: 100%; background: var(--yellow); color: var(--ink); padding: 16px; border-radius: 50px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; box-shadow: 0 6px 24px rgba(0,0,0,.2); transition: all .22s; margin-bottom: 12px; }
+.btn-final:hover { background: #ffd43b; transform: translateY(-2px); }
+.secure-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.secure-row span { font-size: 11px; color: rgba(255,255,255,.28); font-weight: 700; }
+
+footer { background: var(--ink); text-align: center; padding: 26px 20px; font-size: 11px; color: rgba(255,255,255,.28); line-height: 2; font-weight: 600; }
+
+/* ── STICKY ── */
+.sticky { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(244,248,255,.97); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 2px solid var(--blue); padding: 10px 16px 12px; display: none; z-index: 999; box-shadow: 0 -4px 20px rgba(26,28,46,.12); }
+@media(max-width:700px){ .sticky { display: block; } .sticky a { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 50px; font-weight: 800; font-size: .9rem; background: var(--blue); color: #fff; box-shadow: 0 4px 16px rgba(26,95,180,.35); } footer { padding-bottom: 76px; } }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+.reveal.in { opacity: 1; transform: none; }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '924382820251135');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=924382820251135&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<!-- ANNOUNCE -->
+<div class="announce">🔥 +7.000 MÃES JÁ USARAM — Funciona com TDAH e dislexia. Acesso imediato após o pagamento.</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="wrap">
+
+    <!-- social proof ABOVE the title -->
+    <div class="hero-social-proof">
+      <span class="hsp-stars">★★★★★</span>
+      <span class="hsp-text">+7.000 mães</span>
+      <span class="hsp-pill">97% aprovação</span>
+    </div>
+
+    <div class="hero-tag">✨ Kit Grafismo Fonético</div>
+
+    <!-- NEW H1 — mirrors roteiro hook exactly -->
+    <h1>Como ensinei minha filha<br>de 4 anos a ler em<br><em>2 semanas</em> com apenas<br><span class="red">10 minutos por dia.</span></h1>
+
+    <p class="hero-sub">O método americano de Alfabetização Acelerada que transforma letras e sons em brincadeira — e a hora da tarefa deixa de ser guerra.</p>
+
+    <!-- NEW HERO IMAGE / MOCKUP -->
+    <img src="mockup.png" class="hero-img" alt="Mockup completo do Kit Grafismo Fonético">
+
+    <div class="hero-price-box">
+      <div class="hero-price-old">De R$37,90</div>
+      <div class="hero-price"><sup>R$</sup>15<span>,00</span></div>
+      <div class="hero-price-note">Acesso imediato após o pagamento</div>
+    </div>
+
+    <a href="#oferta" class="btn-main">EU QUERO →</a>
+
+    <div class="hero-badges">
+      <span>🔒 Pagamento seguro</span>
+      <span>⚡ Acesso imediato</span>
+      <span>🛡️ 7 dias de garantia</span>
+    </div>
+  </div>
+</header>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <div class="social-inner">
+    <div class="si">📚 <strong>+7.000</strong> mães</div>
+    <div class="si-sep"></div>
+    <div class="si">⚡ Resultado em <strong>dias</strong></div>
+    <div class="si-sep"></div>
+    <div class="si">🧠 Funciona com <strong>TDAH e dislexia</strong></div>
+    <div class="si-sep"></div>
+    <div class="si">⭐ <strong>97%</strong> aprovação</div>
+  </div>
+</div>
+
+<!-- ══ 1. PAIN — first section ══ -->
+<section class="pain-sec reveal">
+  <div class="wrap">
+    <span class="sec-label">Isso acontece na sua casa?</span>
+    <h2 class="sec-title">Seu filho já tentou<br><em>e travou de novo?</em></h2>
+    <p class="pain-intro">Se você já chamou pra tarefa e virou guerra — <strong>você não está sozinha.</strong> Mais de 7.000 mães passaram pelo mesmo antes de encontrar esse método.</p>
+    <div class="pain-grid">
+      <div class="pain-card"><span class="pi">😭</span>Trava nas sílabas mesmo depois de muito treino</div>
+      <div class="pain-card"><span class="pi">😤</span>A hora da tarefa virou briga todos os dias</div>
+      <div class="pain-card"><span class="pi">😞</span>Já tentou reforço, app, caderno — nada funcionou</div>
+      <div class="pain-card"><span class="pi">💸</span>Gastou em cursos e materiais sem resultado real</div>
+      <div class="pain-card"><span class="pi">😟</span>Está atrasado em relação à turma</div>
+      <div class="pain-card"><span class="pi">💔</span>Você se sente culpada por perder a paciência</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2. STORY ══ -->
+<section class="story-sec reveal">
+  <div class="wrap">
+    <span class="sec-label">A virada que mudou tudo</span>
+    <h2 class="sec-title">A noite em que eu fui<br><em>chorar escondida.</em></h2>
+    <p class="story-quote">"Toda noite era a mesma guerra. Eu chamava pra tarefa, ele chorava, eu perdia a paciência — e depois ia chorar escondida, me sentindo a pior mãe do mundo."</p>
+    <div class="story-body">
+      <p>Isso soa familiar? O problema não é você — e <strong>não é o seu filho.</strong> É o método.</p>
+      <p>O sistema tradicional de decorar letra por letra faz o cérebro memorizar, mas <strong>não conectar.</strong> Na hora de juntar sílabas, a criança trava — e começa a achar que é burra.</p>
+      <p>Uma mãe de Recife nos mandou áudio chorando depois de <strong>uma semana com o kit:</strong> <em>"Meu filho leu 'mãe' sozinho. Eu não acreditei."</em></p>
+    </div>
+    <div class="story-highlight">
+      <strong>E as brigas?</strong> Acabaram. Porque pra ele é brincadeira. Ele desenha, pinta, se diverte — e aprende a ler <strong>sem perceber.</strong> Agora ele <em>te procura</em> para fazer as atividades.
+    </div>
+    <div class="stat-row">
+      <div class="stat-box"><div class="stat-num">7mil+</div><div class="stat-label">mães já usaram</div></div>
+      <div class="stat-box"><div class="stat-num">10min</div><div class="stat-label">por dia é suficiente</div></div>
+      <div class="stat-box"><div class="stat-num">30dias</div><div class="stat-label">para ler sozinho</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. SCIENCE ══ -->
+<section class="science-sec reveal">
+  <div class="wrap">
+    <span class="sec-label">Por que funciona?</span>
+    <h2 class="sec-title">O interruptor do<br><em>cérebro infantil.</em></h2>
+    <p class="science-intro">Quando você ensina com <strong>só um sentido</strong> — mostra a letra e manda repetir — o cérebro decora, mas não conecta. O Grafismo Fonético acende os <strong>3 estímulos ao mesmo tempo:</strong></p>
+
+    <div class="brain-demo">
+      <div class="bd-label">Método tradicional vs. Grafismo Fonético</div>
+      <div class="bd-old">
+        <span class="bd-old-label">❌ Antes</span>
+        <div class="bd-old-steps">
+          <div class="bd-step">Vê letra</div>
+          <div class="bd-step">Repete</div>
+          <div class="bd-step">Trava 😢</div>
+        </div>
+      </div>
+      <div style="height:8px"></div>
+      <div class="bd-new">
+        <span class="bd-new-label">✅ Agora</span>
+        <div class="bd-new-steps">
+          <div class="bd-new-step">Vê imagem</div>
+          <div class="bd-new-step">Ouve som</div>
+          <div class="bd-new-step">Lê! 🎉</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="brain-grid">
+      <div class="brain-card">
+        <div class="brain-icon">👁️</div>
+        <div class="brain-title">Visão</div>
+        <div class="brain-desc">Vê a imagem conectada à letra</div>
+      </div>
+      <div class="brain-card">
+        <div class="brain-icon">👂</div>
+        <div class="brain-title">Audição</div>
+        <div class="brain-desc">Ouve o som correspondente</div>
+      </div>
+      <div class="brain-card">
+        <div class="brain-icon">✏️</div>
+        <div class="brain-title">Movimento</div>
+        <div class="brain-desc">Faz o traçado com a mão</div>
+      </div>
+    </div>
+
+    <div class="science-result">
+      <span class="sr-icon">💡</span>
+      <span>Três estímulos juntos é como <strong>ligar um interruptor.</strong> A criança começa a conectar as sílabas sozinha — em menos de 2 semanas, com 10 minutos por dia, brincando. <strong>Ela pede pra fazer.</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. HOW ══ -->
+<section class="how-sec reveal">
+  <div class="wrap">
+    <span class="sec-label">Como funciona</span>
+    <h2 class="sec-title">3 passos simples.<br><em>Resultado em dias.</em></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h4>Compre e receba tudo agora</h4>
+          <p>Após o pagamento, o acesso é imediato. Você baixa todo o material para o celular ou computador e pode imprimir quantas vezes quiser — sem limite.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h4>Aplique 10 minutos por dia com seu filho</h4>
+          <p>Siga o passo a passo ilustrado. Não precisa de experiência. As atividades são curtas, coloridas e divertidas — ele não vai reclamar. Pelo contrário, vai pedir pra fazer.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h4>Veja os resultados em dias — não meses</h4>
+          <p>Na primeira semana ela conecta os sons. Em duas semanas, junta sílabas. Em 30 dias, lê a plaquinha na rua e te chama: <em>"Mãe, olha o que tá escrito!"</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. CONTENT ══ -->
+<section class="content-sec reveal">
+  <div class="wrap">
+    <span class="sec-label">O que você recebe</span>
+    <h2 class="sec-title">5 módulos completos.<br><em>+100 atividades prontas.</em></h2>
+    <div class="modules">
+      <div class="mod-card"><div class="mod-icon-col mc1">📖</div><div class="mod-body"><h4>Caderno do Alfabeto Fonético</h4><p>Cada letra conectada ao som e à imagem — os 3 estímulos juntos para o cérebro realmente conectar</p><span class="mod-pill">A base do método</span></div></div>
+      <div class="mod-card"><div class="mod-icon-col mc2">✏️</div><div class="mod-body"><h4>Caderno Prático de Traçado</h4><p>Atividades para firmar o traçado e escrever com mais ritmo, fluidez e confiança</p><span class="mod-pill">Coordenação + escrita</span></div></div>
+      <div class="mod-card"><div class="mod-icon-col mc3">🅰️</div><div class="mod-body"><h4>Silabário Cursivo</h4><p>Desenvolve a leitura silábica com segurança progressiva — o fim do travamento</p><span class="mod-pill">Leitura fluida</span></div></div>
+      <div class="mod-card"><div class="mod-icon-col mc4">💬</div><div class="mod-body"><h4>Produção de Frases</h4><p>Estimula a imaginação e o vocabulário enquanto pratica a leitura e escrita</p><span class="mod-pill">Vocabulário + criatividade</span></div></div>
+      <div class="mod-card"><div class="mod-icon-col mc5">🎨</div><div class="mod-body"><h4>Coordenação Motora</h4><p>Atividades que fortalecem os músculos das mãos para uma escrita firme e bonita</p><span class="mod-pill">Mãos fortes</span></div></div>
+      <div class="mod-card"><div class="mod-icon-col mc6">🖋️</div><div class="mod-body"><h4>Frases Cursivas</h4><p>Aprimora a fluidez do traçado e a legibilidade da escrita de forma progressiva</p><span class="mod-pill">Fluidez + legibilidade</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANCHOR BAR -->
+<div class="anchor-bar">
+  <p>Uma aula de reforço custa <strong>R$60, R$80, R$100.</strong><br>Esse kit custa <em>R$15 — e você usa para sempre.</em></p>
+</div>
+
+<!-- ══ 6. PROOF ══ -->
+<section class="proof-sec reveal">
+  <div class="wrap">
+    <span class="sec-label">Mães reais, resultados reais</span>
+    <h2 class="sec-title">Elas duvidaram.<br><em>Depois choraram de alegria.</em></h2>
+    <div class="proofs">
+      <div class="proof-card">
+        <div class="proof-top"><img src="camila.png" class="proof-av" alt="Camila R."><div><div class="proof-name">Camila R. — Recife</div><div class="proof-stars">★★★★★</div></div></div>
+        <p class="proof-text">"Mandei áudio chorando. Meu filho leu 'mãe' sozinho depois de uma semana. Já tentei de tudo antes — nada tinha funcionado de verdade."</p>
+        <div class="proof-result">✅ Leu sozinho na 1ª semana</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-top"><img src="fernanda.png" class="proof-av" alt="Fernanda M."><div><div class="proof-name">Fernanda M. — São Paulo</div><div class="proof-stars">★★★★★</div></div></div>
+        <p class="proof-text">"Meu filho tem TDAH e eu tinha perdido a esperança. Com esse kit ele faz sem reclamar — porque parece brincadeira. Em duas semanas juntando sílabas sozinho!"</p>
+        <div class="proof-result">✅ Funcionou com TDAH</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-top"><img src="juliana.png" class="proof-av" alt="Juliana T."><div><div class="proof-name">Juliana T. — Curitiba</div><div class="proof-stars">★★★★★</div></div></div>
+        <p class="proof-text">"No 30º dia minha filha leu a plaquinha da padaria e me chamou: 'Mãe, tá escrito padaria!' Eu fui pra casa e chorei. Voltei a ser mãe, não professora particular."</p>
+        <div class="proof-result">✅ Lendo na rua no dia 30</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BONUSES ══ -->
+<section class="bonus-sec reveal">
+  <div class="wrap">
+    <span class="sec-label" style="color: #7a5c00;">Presentes Inclusos</span>
+    <h2 class="sec-title">Levando agora, você leva<br><em>4 bônus de graça.</em></h2>
+    
+    <div class="bonus-list">
+      <div class="bonus-card">
+        <div class="bc-top">
+          <img src="bonus_tea_1773443973120.png" class="bc-icon-img" alt="+140 Atividades para TEA">
+          <div class="bc-text">
+            <span>Bônus Exclusivo 1</span>
+            <h3>+140 Atividades para TEA</h3>
+          </div>
+        </div>
+        <p>Atividades adaptadas e focadas em prender a atenção e desenvolver crianças no espectro autista de forma lúdica.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bc-top">
+          <img src="bonus_desenhos_1773444009029.png" class="bc-icon-img" alt="100+ Desenhos para Colorir">
+          <div class="bc-text">
+            <span>Bônus Exclusivo 2</span>
+            <h3>100+ Desenhos para Colorir</h3>
+          </div>
+        </div>
+        <p>O alívio perfeito para tirar as crianças das telas. Terminou a atividade do dia? A recompensa é o momento de colorir.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bc-top">
+          <img src="bonus_guia_pais_1773444263442.png" class="bc-icon-img" alt="Guia de Apoio para Pais">
+          <div class="bc-text">
+            <span>Bônus Exclusivo 3</span>
+            <h3>Guia de Apoio para Pais</h3>
+          </div>
+        </div>
+        <p>Um manual rápido para lidar melhor com a frustração infantil (e a sua) na hora de estudar, recuperando a sua paciência.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bc-top">
+          <img src="bonus_certificado.png" class="bc-icon-img" alt="Certificado de Conquista">
+          <div class="bc-text">
+            <span>Bônus Exclusivo 4</span>
+            <h3>Certificado de Conquista</h3>
+          </div>
+        </div>
+        <p>As crianças amam ser reconhecidas. Entregue um lindo certificado oficial de leitura criando muita motivação e autoestima!</p>
+      </div>
+    </div>
+
+    <div class="bonus-total">Se vendidos separados: <s>R$ 97,00</s><br><em>Hoje, 100% de graça com o Kit.</em></div>
+  </div>
+</section>
+
+<!-- TIMER -->
+<div class="timer-bar">
+  <div class="timer-label">⏰ Oferta especial — termina em</div>
+  <div class="timer-row">
+    <div class="tbox"><div class="tnum" id="th">00</div><div class="tunit">horas</div></div>
+    <span class="tsep">:</span>
+    <div class="tbox"><div class="tnum" id="tm">00</div><div class="tunit">min</div></div>
+    <span class="tsep">:</span>
+    <div class="tbox"><div class="tnum" id="ts">00</div><div class="tunit">seg</div></div>
+  </div>
+</div>
+
+<!-- ══ 7. OFFER ══ -->
+<section class="offer-sec reveal" id="oferta">
+  <div class="wrap">
+    <span class="sec-label">Garanta o seu acesso</span>
+    <h2 class="sec-title">Tudo isso por menos<br>do que <em>uma aula de reforço.</em></h2>
+    <div class="offer-anchor">
+      Cursos similares cobram <strong>R$97, R$197 até R$397.</strong> Você paga hoje <strong>R$15,00</strong> — e imprime quantas vezes quiser, para sempre.
+    </div>
+    <div class="offer-box">
+      <div class="offer-tag">🏆 OFERTA ESPECIAL — APENAS HOJE</div>
+      <div class="offer-inner">
+        <div class="offer-product-preview">
+          <img src="mockup.png" class="opp-icon" alt="Kit Grafismo Fonético Mockup">
+          <div class="opp-text"><h3>Kit Grafismo Fonético</h3><p>Kit completo com +100 atividades para imprimir e passo a passo ilustrado — aplique hoje mesmo</p></div>
+        </div>
+        <div class="offer-what">
+          <h4>Você vai receber</h4>
+          <ul class="offer-list">
+            <li><span class="oi-y">✓</span><span>Caderno do Alfabeto Fonético — letra + som + imagem</span></li>
+            <li><span class="oi-y">✓</span><span>Caderno Prático de Caligrafia Cursiva</span></li>
+            <li><span class="oi-y">✓</span><span>Silabário Cursivo — fim do travamento</span></li>
+            <li><span class="oi-y">✓</span><span>Caderno de Produção de Texto e Frases</span></li>
+            <li><span class="oi-y">✓</span><span>Coordenação Motora — escrita firme e bonita</span></li>
+            <li><span class="oi-y">✓</span><span>Passo a passo ilustrado para aplicar hoje</span></li>
+            <li><span class="oi-y">✓</span><span>Funciona com TDAH e dislexia</span></li>
+            <li><span class="oi-y" style="font-size:16px;">🎁</span><span style="font-weight:700;color:var(--ink);">+ 4 Bônus Exclusivos Grátis</span></li>
+          </ul>
+        </div>
+        <div class="offer-extra">
+          <h4>+ Extra exclusivo</h4>
+          <ul>
+            <li>🖨️ Imprima quantas vezes quiser — sem limite</li>
+            <li>♾️ Acesso vitalício ao material</li>
+            <li>🔄 Renovação de conteúdo gratuita</li>
+          </ul>
+        </div>
+        <div class="offer-price-block">
+          <div class="opb-old">De R$37,90</div>
+          <div class="opb-price"><sup>R$</sup>15<span>,00</span></div>
+          <div class="opb-note">Acesso imediato após o pagamento</div>
+        </div>
+        <a href="#checkout" class="btn-buy">COMPRAR AGORA →</a>
+        <div class="pay-icons">
+          <div class="pay-icon">💳 Cartão</div>
+          <div class="pay-icon">📱 Pix</div>
+          <div class="pay-icon">🏦 Boleto</div>
+        </div>
+        <div class="offer-badges">
+          <span>🔒 Pagamento seguro</span>
+          <span>⚡ Acesso imediato</span>
+          <span>🛡️ 7 dias de garantia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GUARANTEE ══ -->
+<section class="guarantee-sec reveal">
+  <div class="wrap">
+    <h2 class="sec-title" style="text-align:center;margin-bottom:22px;">Satisfação garantida<br>ou seu dinheiro de volta.</h2>
+    <div class="guarantee-box">
+      <div class="g-icon">🛡️</div>
+      <div class="g-text">
+        <h3>Garantia incondicional de 7 dias</h3>
+        <p>Aplique o método com seu filho. Se em 7 dias você não ficar satisfeita, basta chamar e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é 100% nosso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BENEFITS — after offer/guarantee ══ -->
+<section class="benefits-sec reveal">
+  <div class="wrap">
+    <span class="sec-label">O que muda na prática</span>
+    <h2 class="sec-title">A vida que espera<br><em>do outro lado.</em></h2>
+    <div class="ben-grid">
+      <div class="ben-card"><div class="ben-icon">📖</div><div class="ben-text"><h4>Lê com confiança</h4><p>Para de travar e começa a ler palavras inteiras sozinho</p></div></div>
+      <div class="ben-card"><div class="ben-icon">🧠</div><div class="ben-text"><h4>Concentração e foco</h4><p>Atividades curtas que prendem a atenção — inclusive com TDAH</p></div></div>
+      <div class="ben-card"><div class="ben-icon">😊</div><div class="ben-text"><h4>Fim das brigas</h4><p>A tarefa deixa de ser guerra porque parece brincadeira</p></div></div>
+      <div class="ben-card"><div class="ben-icon">✍️</div><div class="ben-text"><h4>Escrita firme e bonita</h4><p>Coordenação motora desenvolvida para uma letra legível</p></div></div>
+      <div class="ben-card"><div class="ben-icon">🚀</div><div class="ben-text"><h4>Aprendizado acelerado</h4><p>3 estímulos juntos fazem o cérebro conectar muito mais rápido</p></div></div>
+      <div class="ben-card"><div class="ben-icon">💛</div><div class="ben-text"><h4>Você volta a ser mãe</h4><p>Não professora. Ele te procura pra fazer as atividades.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-sec reveal">
+  <div class="wrap">
+    <span class="sec-label">Dúvidas frequentes</span>
+    <h2 class="sec-title">Antes de decidir.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Funciona para criança com TDAH ou dislexia? <span class="faq-ic">+</span></div>
+        <div class="faq-a">Sim. Mais de 7.000 mães usaram — inclusive com filhos com TDAH e dislexia. As atividades são curtas (10 min), lúdicas e estimulam múltiplos sentidos ao mesmo tempo, que é exatamente o que essas crianças precisam.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Em quanto tempo verei resultado? <span class="faq-ic">+</span></div>
+        <div class="faq-a">A maioria das mães relata resultados já na primeira semana. Em 30 dias a criança costuma estar lendo frases simples sozinha. O ritmo varia de criança para criança, mas o método foi criado para resultados rápidos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como recebo o material? <span class="faq-ic">+</span></div>
+        <div class="faq-a">O acesso é imediato após o pagamento. Você baixa tudo para o celular ou computador e pode imprimir quantas vezes quiser — sem limite.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Preciso de experiência para aplicar? <span class="faq-ic">+</span></div>
+        <div class="faq-a">Não. O material vem com passo a passo ilustrado para aplicar hoje mesmo, sem nenhuma experiência em pedagogia. Qualquer mãe consegue.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Para qual idade é indicado? <span class="faq-ic">+</span></div>
+        <div class="faq-a">Para crianças do 1º ao 6º ano, mas funciona muito bem desde os 4 anos — como mostram vários depoimentos de mães com filhos pré-escolares.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">E se eu não gostar? <span class="faq-ic">+</span></div>
+        <div class="faq-a">7 dias de garantia total. Pediu o reembolso, devolvemos 100% do valor. Sem perguntas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final-sec">
+  <div class="wrap reveal">
+    <div class="final-title">Daqui 30 dias seu filho<br>pode estar <em>lendo sozinho.</em></div>
+    <p class="final-sub">Ou pode continuar igual. A escolha é sua — e ela custa R$15,00.</p>
+    <div class="final-price-box">
+      <div class="fp-old">De R$37,90</div>
+      <div class="fp-price"><sup>R$</sup>15<sup>,00</sup></div>
+      <a href="#checkout" class="btn-final">QUERO MEU FILHO LENDO AGORA →</a>
+      <div class="secure-row">
+        <span>🔒 Seguro</span>
+        <span>⚡ Imediato</span>
+        <span>🛡️ 7 dias de garantia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Kit Grafismo Fonético — Todos os direitos reservados</p>
+  <p>Produto digital entregue imediatamente após confirmação do pagamento. Resultados podem variar.</p>
+</footer>
+
+<div class="sticky">
+  <a href="#checkout">QUERO MEU FILHO LENDO — R$15,00 →</a>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const a = q.nextElementSibling;
+      const open = a.classList.contains('open');
+      document.querySelectorAll('.faq-a,.faq-q').forEach(x => x.classList.remove('open'));
+      if (!open) { a.classList.add('open'); q.classList.add('open'); }
+    });
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Countdown 4h
+  (function() {
+    const end = Date.now() + 4 * 60 * 60 * 1000;
+    function tick() {
+      const d = Math.max(0, end - Date.now());
+      document.getElementById('th').textContent = String(Math.floor(d/3600000)).padStart(2,'0');
+      document.getElementById('tm').textContent = String(Math.floor((d%3600000)/60000)).padStart(2,'0');
+      document.getElementById('ts').textContent = String(Math.floor((d%60000)/1000)).padStart(2,'0');
+      if (d > 0) setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+</script>
+</body>
+</html>
